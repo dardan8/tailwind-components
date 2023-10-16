@@ -15,38 +15,36 @@ const SidebarItem = ({ icon, text, active, alert }: SidebarItemProps) => {
 
   return (
     <li
-      className={`relative flex items-center py-2 px-3 my-1
-    font-medium rounded-md cursor-pointer transition-colors group
+      className={`box-border relative flex items-center justify-center p-3 my-2 
+     rounded-lg cursor-pointer transition-colors group text-sm 
     ${
       active
-        ? "bg-gradient-to-tr from-indigo-200 to-indigo-100 text-indigo-800"
-        : "hover:bg-indigo-50 text-gray-600"
+        ? "bg-gradient-to-tr from-zinc-200 to-zinc-200 text-zinc-800 font-medium"
+        : "hover:bg-zinc-100 text-zinc-500"
     }
     `}
     >
-      {icon}
-      <span
-        className={`overflow-hidden transition-all ${
-          expanded ? "w-52 ml-3" : "w-0 ml-0"
-        }`}
-      >
-        {text}
-      </span>
+      <span className='flex self-center ml-0'>{icon}</span>
+      {expanded && (
+        <span className={`overflow-hidden transition-all w-48 ml-2 }`}>
+          {text}
+        </span>
+      )}
+
       {alert && (
         <div
-          className={`absolute right-2 w-2 h-2 rounded bg-indigo-400
-        ${expanded ? "" : "right-4 top-2"}
+          className={`absolute right-3 w-1.5 h-1.5 rounded bg-emerald-600
+        ${expanded ? "" : " right-8 top-2"}
         `}
         />
       )}
-
       {!expanded && (
         <div
           className={`
       absolute left-full rounded-md px-2 py-1 ml-6
-      bg-indigo-100 text-indigo-800 text-sm
+      bg-zinc-200 text-zinc-800 text-sm
       invisible opacity-20 -translate-x-3 transition-all
-      group-hover:visible group-hover:opacity-100 group-hover:translate-x-0
+      group-hover:visible group-hover:opacity-100 group-hover:translate-x-0 shadow-sm
       `}
         >
           {text}

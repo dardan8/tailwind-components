@@ -4,18 +4,22 @@ import { MoreVertical, ChevronLast, ChevronFirst } from "lucide-react";
 import Logo from "../../public/assets/images/logo-283.svg";
 import Image from "next/image";
 import UserAvatar from "../../public/assets/images/ui-avatar.png";
-import { useState, createContext } from "react";
+import { createContext } from "react";
+import Link from "next/link";
 
 type ChildrenProps = {
   children?: React.ReactNode;
+  expanded: boolean;
+  setExpanded: any;
 };
 
 export const SidebarContext = createContext(true);
 
-const Sidebar = ({ children }: ChildrenProps) => {
-  const [expanded, setExpanded] = useState(true);
+const Sidebar = ({ children, expanded, setExpanded }: ChildrenProps) => {
   return (
-    <aside className={`h-screen ${expanded ? "w-1/6" : "w-auto"}`}>
+    <aside
+      className={`h-screen absolute z-10 ${expanded ? "w-1/6" : "w-[5%]"}`}
+    >
       <nav className='h-full flex flex-col bg-white border-r shadow-sm box-border'>
         <div
           className={`p-4 flex ${
@@ -23,18 +27,20 @@ const Sidebar = ({ children }: ChildrenProps) => {
           } items-center`}
         >
           {expanded && (
-            <Image
-              src={Logo}
-              width={30}
-              height={40}
-              alt='Logo Image'
-              className={`overflow-hidden transition-all w-8
+            <Link href='/'>
+              <Image
+                src={Logo}
+                width={30}
+                height={40}
+                alt='Logo Image'
+                className={`overflow-hidden transition-all w-8
             `}
-            />
+              />
+            </Link>
           )}
           <button
-            className='rounded-lg bg-zinc-100 hover:bg-zinc-200 p-0.5'
-            onClick={() => setExpanded((curr) => !curr)}
+            className='p-1 border-solid border rounded-md border-zinc-300 hover:bg-zinc-200'
+            onClick={() => setExpanded((curr: boolean) => !curr)}
           >
             {expanded ? <ChevronFirst size={24} /> : <ChevronLast size={24} />}
           </button>

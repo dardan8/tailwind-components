@@ -8,7 +8,7 @@ export default function Home() {
   const expanded = useContext(SidebarContext);
   console.log(expanded);
   return (
-    <main className={`flex bg-slate-500 z-0`}>
+    <main className={`flex bg-slate-500z z-0 h-full`}>
       <div className='flex flex-wrap '>
         <Card />
       </div>

@@ -6,7 +6,7 @@ const Card = () => {
     <div className='flex flex-col rounded-[22px] border-solid border-2 border-indigo-600 h-max'>
       <div className='flex w-full'>
         <Image
-          className='rounded-t-[20px] object-cover w-full h-25'
+          className='rounded-t-[20px] object-cover w-[350px] h-[200px]'
           src={cardImage}
           width={150}
           height={50}

@@ -22,7 +22,6 @@ type SlideProps = {
 
 const Slider = ({ slides }: SliderProps) => {
   const [current, setCurrent] = useState(0);
-  console.log(slides[0]);
 
   const previous = () =>
     setCurrent(current === 0 ? slides.length - 1 : current - 1);

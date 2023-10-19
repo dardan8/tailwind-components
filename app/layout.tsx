@@ -38,7 +38,9 @@ export default function RootLayout({
                   active
                 />
               </Link>
-              <SidebarItem icon={<FormInput size={20} />} text='Forms' />
+              <Link href='/forms'>
+                <SidebarItem icon={<FormInput size={20} />} text='Forms' />
+              </Link>
               <SidebarItem icon={<Boxes size={20} />} text='Statistics' alert />
             </Sidebar>
           </div>

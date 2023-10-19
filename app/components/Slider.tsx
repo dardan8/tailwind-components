@@ -30,9 +30,9 @@ const Slider = ({ slides }: SliderProps) => {
     setCurrent(current === slides.length - 1 ? 0 : current + 1);
 
   return (
-    <div className='flex relative overflow-hidden w-[500px] h-[600px] p-0 rounded-md'>
+    <div className='flex relative overflow-hidden w-[500px] h-[600px] p-0 rounded-md '>
       <div
-        className='flex'
+        className='flex transition-all'
         style={{ transform: `translateX(-${current * 100}%)` }}
       >
         {slides.map((slide: SlideProps) => {

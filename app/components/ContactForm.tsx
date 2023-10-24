@@ -13,12 +13,15 @@ const ContactForm = () => {
 
   return (
     <form onSubmit={onSubmit}>
+      <label htmlFor='name'>Name: </label>
       <input
         type='text'
         placeholder='Name:'
         value={name}
         onChange={(e) => setName(e.target.value)}
+        id='name'
       />
+
       <input
         type='email'
         placeholder='E-mail:'

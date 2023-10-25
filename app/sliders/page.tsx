@@ -20,7 +20,7 @@ const page = () => {
 
   return (
     <div
-      className={`bg-slate-100 min-h-screen flex items-center justify-center p-5`}
+      className={`bg-slate-100 min-h-screen flex items-center justify-center p-5 w-full`}
     >
       <Slider slides={images.slides} />
     </div>

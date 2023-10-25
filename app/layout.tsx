@@ -44,7 +44,7 @@ export default function RootLayout({
               <SidebarItem icon={<Boxes size={20} />} text='Statistics' alert />
             </Sidebar>
           </div>
-          <div className={` ${expanded ? "w-5/6" : "w-[95%]"}`}>{children}</div>
+          <div className={`${expanded ? "w-5/6" : "w-[95%]"}`}>{children}</div>
         </div>
       </body>
     </html>

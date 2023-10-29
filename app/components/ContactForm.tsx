@@ -1,9 +1,11 @@
 "use client";
 import { FormEvent, useState } from "react";
 import Confetti from "react-confetti";
-
+import { AlertOctagon } from "lucide-react";
 const ContactForm = () => {
   const [submitted, setSubmitted] = useState<boolean>(false);
+  const [focused, setFocused] = useState<boolean>(false);
+
   const [fname, setFname] = useState("");
   const [lname, setLname] = useState("");
   const [email, setEmail] = useState("");
@@ -29,59 +31,75 @@ const ContactForm = () => {
       console.error("Error!", err);
     }
   };
-  console.log("Rendered");
+
   return !submitted ? (
     <form onSubmit={onSubmit} className='flex flex-col gap-4 w-full '>
       <div className='flex flex-col gap-2'>
         <label htmlFor='fname'>
-          <span className='text-sm  text-zinc-600'>First Name:</span>
+          <span className='text-sm  text-zinc-600'>First Name *</span>
         </label>
         <input
           type='text'
           placeholder='Enter first name:'
           value={fname}
-          onChange={(e) => setFname(e.target.value)}
           id='fname'
           name='fname'
-          className='text-sm rounded-md py-2.5 px-3 text-zinc-600 
+          required
+          pattern='[A-Za-z]{2,25}'
+          onChange={(e) => setFname(e.target.value)}
+          className='peer text-sm rounded-md py-2.5 px-3 text-zinc-600 
           ring-1 ring-inset ring-zinc-300 placeholder:text-zinc-300
           placeholder:text-sm focus:ring-2
           focus:ring-inset focus:ring-emerald-600 focus:outline-none'
         />
+        <span className='text-xs text-red-600 hidden peer-[&:not(:placeholder-shown):not(focus):invalid]:inline-flex items-center gap-1'>
+          <AlertOctagon size={14} /> Please type your first name (at least 2
+          characters)
+        </span>
       </div>
       <div className='flex flex-col gap-2'>
         <label htmlFor='lname'>
-          <span className='text-sm text-zinc-600'>Last Name:</span>
+          <span className='text-sm text-zinc-600'>Last Name *</span>
         </label>
         <input
           type='text'
           placeholder='Enter last name:'
           value={lname}
+          required
+          pattern='[A-Za-z]{2,25}'
           onChange={(e) => setLname(e.target.value)}
           id='lname'
           name='lname'
           className='text-sm rounded-md py-2.5 px-3 text-zinc-600 
           ring-1 ring-inset ring-zinc-300 placeholder:text-zinc-300
           placeholder:text-sm focus:ring-2
-          focus:ring-inset focus:ring-emerald-600 focus:outline-none'
+          focus:ring-inset focus:ring-emerald-600 focus:outline-none peer'
         />
+        <span className='text-xs text-red-600 hidden peer-[&:not(:placeholder-shown):not(focus):invalid]:inline-flex items-center gap-1'>
+          <AlertOctagon size={14} /> Please type your last name (at least 2
+          characters)
+        </span>
       </div>
       <div className='flex flex-col gap-2'>
         <label htmlFor='email'>
-          <span className='text-sm text-zinc-600'>Email:</span>
+          <span className='text-sm text-zinc-600'>Email *</span>
         </label>
         <input
           type='email'
           placeholder='Enter your e-mail:'
           value={email}
+          required={true}
           name='email'
           id='email'
           onChange={(e) => setEmail(e.target.value)}
           className='text-sm rounded-md py-2.5 px-3 text-zinc-600 
           ring-1 ring-inset ring-zinc-300 placeholder:text-zinc-300
           placeholder:text-sm focus:ring-2
-          focus:ring-inset focus:ring-emerald-600 focus:outline-none'
+          focus:ring-inset focus:ring-emerald-600 focus:outline-none peer'
         />
+        <span className='text-xs text-red-600 hidden peer-[&:not(:placeholder-shown):not(:focus):invalid]:inline-flex items-center gap-1'>
+          <AlertOctagon size={14} /> Please type a valid e-mail address
+        </span>
       </div>
       <div className='flex flex-col gap-2'>
         <label htmlFor='message'>

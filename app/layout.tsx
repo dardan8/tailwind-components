@@ -28,8 +28,8 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body className={inter.className}>
-        <div className='flex h-screen box-border'>
-          <div className={`${expanded ? "w-1/6" : "w-[5%]"}`}>
+        <div className='flex h-screen box-border w-full'>
+          <div className={`${expanded ? "w-1/6" : "w-[4%]"}`}>
             <Sidebar expanded={expanded} setExpanded={setExpanded}>
               <Link href='/sliders'>
                 <SidebarItem
@@ -44,7 +44,7 @@ export default function RootLayout({
               <SidebarItem icon={<Boxes size={20} />} text='Statistics' alert />
             </Sidebar>
           </div>
-          <div className={`${expanded ? "w-5/6" : "w-[95%]"}`}>{children}</div>
+          <div className={`${expanded ? "w-5/6" : "w-[96%]"}`}>{children}</div>
         </div>
       </body>
     </html>

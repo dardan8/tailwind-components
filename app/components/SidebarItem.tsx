@@ -34,7 +34,7 @@ const SidebarItem = ({ icon, text, active, alert }: SidebarItemProps) => {
       {alert && (
         <div
           className={`absolute right-3 w-1.5 h-1.5 rounded bg-emerald-600
-        ${expanded ? "" : " right-8 top-2"}
+        ${expanded ? "" : " right-2 top-2"}
         `}
         />
       )}

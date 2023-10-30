@@ -28,7 +28,7 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body className={inter.className}>
-        <div className='flex h-screen'>
+        <div className='flex h-screen box-border'>
           <div className={`${expanded ? "w-1/6" : "w-[5%]"}`}>
             <Sidebar expanded={expanded} setExpanded={setExpanded}>
               <Link href='/sliders'>

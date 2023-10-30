@@ -18,9 +18,13 @@ export const SidebarContext = createContext(true);
 const Sidebar = ({ children, expanded, setExpanded }: ChildrenProps) => {
   return (
     <aside
-      className={`h-screen absolute z-10 ${expanded ? "w-1/6" : "w-full"} `}
+      className={`h-screen absolute z-10 ${expanded ? "w-1/6" : "w-[5%]"} `}
     >
-      <nav className='h-full flex flex-col fixed bg-white border-r shadow-sm'>
+      <nav
+        className={`h-full flex flex-col fixed bg-white border-r shadow-sm ${
+          expanded ? "w-auto" : "w-[5%]"
+        }`}
+      >
         <div
           className={`p-4 flex ${
             expanded ? "justify-between" : "justify-center"

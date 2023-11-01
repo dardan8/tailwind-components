@@ -10,6 +10,7 @@ const page = () => {
           possible!
         </h1>
         <ContactForm />
+        <ContactForm />
       </div>
     </div>
   );

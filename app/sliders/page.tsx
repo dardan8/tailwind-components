@@ -23,7 +23,6 @@ const page = () => {
       className={`bg-slate-100 min-h-screen flex items-center justify-center flex-wrap p-5 w-full`}
     >
       <Slider slides={images.slides} />
-      <Slider slides={images.slides} />
     </div>
   );
 };

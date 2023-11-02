@@ -1,37 +1,26 @@
 "use client";
+import AccordionItem from "./AccordionItem";
+import { accordionData } from "../data";
+import { useState } from "react";
 
-import { ChevronUp } from "lucide-react";
-import { useState, useRef } from "react";
+const Accordion = () => {
+  const [clicked, setClicked] = useState<number>();
 
-type AccordionProps = {
-  question: string;
-  answer: string;
-};
-const Accordion = ({ question, answer }: AccordionProps) => {
-  const [open, setOpen] = useState<boolean>(false);
+  const handleToggle = (index: number) => {
+    setClicked(index);
+  };
 
   return (
-    <div
-      className={`flex flex-col 
-      bg-zinc-100 hover:bg-zinc-200 p-4 rounded-lg w-full border border-zinc-200 text-zinc-700 mb-2 cursor-pointer ${
-        open ? "bg-zinc-200 cursor-pointer border-zinc-200" : ""
-      }`}
-      onClick={() => setOpen(!open)}
-    >
-      <div className='flex items-center justify-between '>
-        <h4 className='text-lg font-medium'>{question} </h4>
-        <ChevronUp
-          className={`transition-all duration-300 ${open ? "" : "rotate-180"}`}
+    <ul>
+      {accordionData.map((acc, index) => (
+        <AccordionItem
+          item={acc}
+          key={index}
+          onToggle={() => handleToggle(index)}
+          active={clicked === index}
         />
-      </div>
-      <div
-        className={`transition-all 
-        ${open ? "h-auto mt-4" : "h-0 overflow-hidden"}
-  `}
-      >
-        <p>{answer} </p>
-      </div>
-    </div>
+      ))}
+    </ul>
   );
 };
 
